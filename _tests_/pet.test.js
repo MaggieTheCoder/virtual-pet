@@ -23,7 +23,7 @@ describe ('constructor', () => {
       
 });
 
-describe ('pet actions', () =>{
+describe ('pet grows and ages', () =>{
     const pet = new Pet('Fido');
     it('increments the age by 1 when growUp method is called', () => {
         pet.growUp()
@@ -36,6 +36,16 @@ describe ('pet actions', () =>{
     
     it('decreases fitness by 3 when growUp method is called', () => {
         expect(pet.fitness).toEqual(7)
+    });
+
+});
+
+describe('walk', () => {
+    it('increases fitness by 4', () => {
+        const pet = new Pet('Fido');
+        pet.fitness = 8;
+        pet.walk()
+        expect(pet.fitness).toEqual(10)
     });
 
 });
