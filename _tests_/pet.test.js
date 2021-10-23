@@ -6,21 +6,36 @@ describe('constructor', () => {
 });
 
 describe ('constructor', () => {
+    const pet = new Pet('Fido');
     it('sets the name property', () => {
-        const pet = new Pet('Fido');
-        expect(pet.name).toEqual('Fido');
-
+       expect(pet.name).toEqual('Fido');
     });
     it('has an initial age of 0',() => {
-        const pet = new Pet('Fido');
         expect(pet.age).toEqual(0)
-        });
+    });
+    it('has an initial hunger of 0',() => {
+        expect(pet.hunger).toEqual(0)
+    });
+    
+    it('has an initial fitness of 10',() => {
+        expect(pet.fitness).toEqual(10)
+    });  
+      
 });
 
-describe ('growUp', () =>{
-    it('increments the age by 1', () => {
-        const pet = new Pet('Fido');
+describe ('pet actions', () =>{
+    const pet = new Pet('Fido');
+    it('increments the age by 1 when growUp method is called', () => {
         pet.growUp()
         expect(pet.age).toEqual(1);
     });
+
+    it('increases hunger by 5 when growUp method is called', () => {
+        expect(pet.hunger).toEqual(5)
+    });
+    
+    it('decreases fitness by 3 when growUp method is called', () => {
+        expect(pet.fitness).toEqual(7)
+    });
+
 });
