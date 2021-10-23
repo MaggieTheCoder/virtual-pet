@@ -21,9 +21,16 @@ class Pet {
     } else {
         this.fitness = MAXIMUM_FITNESS;
     }
+ }
+    feed() {
+        if ((this.hunger - 3) >= MINIMUM_HUNGER) {
+            this.hunger -= 3;
+        } else {
+            this.hunger = MINIMUM_HUNGER;
+        }
+    }
+    
 }
-}
-
 
 
 
