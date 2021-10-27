@@ -1,7 +1,9 @@
 const MAXIMUM_FITNESS = 10;
 const MINIMUM_AGE = 0;
+const MAXIMUM_AGE = 30;
 const MINIMUM_HUNGER = 0;
 const MAXIMUM_HUNGER = 10;
+
 
 class Pet {
     constructor(name) {
@@ -10,12 +12,23 @@ class Pet {
         this.hunger = MINIMUM_HUNGER;
         this.fitness = MAXIMUM_FITNESS;
     }
+
+    get isAlive() {
+        if (this.age >= MAXIMUM_AGE || this.hunger >= MAXIMUM_HUNGER || this.fitness <= 0) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     growUp() {
+        // if (!this.isAlive) return 'I am dead'
         this.age += 1;
         this.hunger += 5;
         this.fitness -= 3;
     }
     walk() {
+        // if (!this.isAlive) return 'I am dead'
         if((this.fitness + 4) <= 10) {
         this.fitness += 4
     } else {
@@ -23,6 +36,7 @@ class Pet {
     }
  }
     feed() {
+        // if (!this.isAlive) return 'I am dead'
         if ((this.hunger - 3) >= MINIMUM_HUNGER) {
             this.hunger -= 3;
         } else {
@@ -33,6 +47,8 @@ class Pet {
     checkUp() {
         const hungry = (this.hunger >= 5)
         const walkies = (this.fitness <= 3)
+
+        // if (!this.isAlive) return 'I am dead'
                 
         if (walkies && hungry) {
             return 'I am hungry AND I need a walk!'

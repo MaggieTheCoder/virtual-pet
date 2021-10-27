@@ -85,3 +85,26 @@ describe('checkUp', () => {
     expect(pet.checkUp()).toEqual('I feel great!')
 });
 });
+
+describe('isAlive', () => {
+    const pet = new Pet('Fido');
+    it('checks if pet is alive', () => {
+        expect(pet.isAlive).toBe(true);
+    });
+
+    it('checks if pet is still alive based on age', () => {
+    pet.age = 32
+    expect(pet.isAlive).toBe(false)
+    });
+
+    it('checks if pet is still alive based on fitness', () => {
+    pet.fitness = -1
+    expect(pet.isAlive).toBe(false)
+    });
+
+    it('checks if pet is still alive based on hunger', () => {
+    pet.hunger = 15
+        expect(pet.isAlive).toBe(false)
+    });
+});
+    
