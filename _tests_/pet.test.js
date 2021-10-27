@@ -60,3 +60,28 @@ describe('feed', () => {
 });
 
 });
+
+describe('checkUp', () => {
+    const pet = new Pet('Fido');
+    it('checks if fitness is 3 or less', () => {
+    pet.fitness = 2
+    expect(pet.checkUp()).toEqual('I need a walk!')
+});
+    
+    it('checks if pet/s hunger is 5 or more', () => {
+    pet.hunger = 6
+    pet.fitness = 8
+    expect(pet.checkUp()).toEqual('I am hungry!')
+});
+    it('checks if fitness is 3 or less and pet hunger is 5 or more', () => {
+        pet.hunger = 7
+        pet.fitness = 2
+        expect(pet.checkUp()).toEqual('I am hungry AND I need a walk!')
+    });
+
+    it('checks that fitness and hunger is above thresholds', () => {
+    pet.hunger = 3
+    pet.fitness = 7
+    expect(pet.checkUp()).toEqual('I feel great!')
+});
+});

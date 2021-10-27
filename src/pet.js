@@ -29,8 +29,31 @@ class Pet {
             this.hunger = MINIMUM_HUNGER;
         }
     }
+
+    checkUp() {
+        const hungry = (this.hunger >= 5)
+        const walkies = (this.fitness <= 3)
+                
+        if (walkies && hungry) {
+            return 'I am hungry AND I need a walk!'
+        }; 
+        
+        if (hungry) {
+            return 'I am hungry!'
+        };
+
+        if (walkies) {
+            return 'I need a walk!'
+        }; 
+        
+        if (!walkies && !hungry) {
+             return 'I feel great!'
+        };
+        }
+    }
+
+       
     
-}
 
 
 
