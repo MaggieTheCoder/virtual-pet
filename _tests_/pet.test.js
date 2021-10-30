@@ -20,8 +20,8 @@ describe ('constructor', () => {
     
     it('has an initial fitness of 10',() => {
         expect(pet.fitness).toEqual(10)
-    });  
-      
+    });
+          
 });
 
 describe ('pet grows and ages', () =>{
@@ -132,3 +132,10 @@ describe('isAlive', () => {
     });
 });
     
+// describe('haveBaby',() = > { 
+//     const parent = new Pet('Fergus');
+//     parent.haveBaby('Amelie')
+//     it('tests that children is property of array')
+//     expect
+
+// })

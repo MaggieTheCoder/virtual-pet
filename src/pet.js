@@ -14,11 +14,9 @@ class Pet {
     }
 
     get isAlive() {
-        if (this.age >= MAXIMUM_AGE || this.hunger >= MAXIMUM_HUNGER || this.fitness <= 0) {
-            return false
-        } else {
-            return true
-        }
+    if (this.age >= MAXIMUM_AGE || this.hunger >= MAXIMUM_HUNGER || this.fitness <= 0) {return false} 
+        return true
+        
     }
     
     growUp() {
