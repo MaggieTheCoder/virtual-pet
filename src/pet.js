@@ -22,13 +22,13 @@ class Pet {
     }
     
     growUp() {
-        // if (!this.isAlive) return 'I am dead'
+        if (!this.isAlive) { throw new Error ('Your pet is no longer alive :(')}
         this.age += 1;
         this.hunger += 5;
         this.fitness -= 3;
     }
     walk() {
-        // if (!this.isAlive) return 'I am dead'
+        if (!this.isAlive) { throw new Error ('Your pet is no longer alive :(')}
         if((this.fitness + 4) <= 10) {
         this.fitness += 4
     } else {
@@ -36,7 +36,8 @@ class Pet {
     }
  }
     feed() {
-        // if (!this.isAlive) return 'I am dead'
+        if (!this.isAlive) { throw new Error ('Your pet is no longer alive :(')}
+        
         if ((this.hunger - 3) >= MINIMUM_HUNGER) {
             this.hunger -= 3;
         } else {
@@ -45,11 +46,11 @@ class Pet {
     }
 
     checkUp() {
+        if (!this.isAlive) { throw new Error ('Your pet is no longer alive :(')}
         const hungry = (this.hunger >= 5)
         const walkies = (this.fitness <= 3)
 
-        // if (!this.isAlive) return 'I am dead'
-                
+                    
         if (walkies && hungry) {
             return 'I am hungry AND I need a walk!'
         }; 

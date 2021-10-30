@@ -25,6 +25,12 @@ describe ('constructor', () => {
 });
 
 describe ('pet grows and ages', () =>{
+    it('throws an error if pet is not alive', () => {
+        const pet = new Pet('Cyril');
+        pet.age = 33;
+        expect(() => pet.growUp()).toThrow('Your pet is no longer alive :(');
+    });
+
     const pet = new Pet('Fido');
     it('increments the age by 1 when growUp method is called', () => {
         pet.growUp()
@@ -42,6 +48,11 @@ describe ('pet grows and ages', () =>{
 });
 
 describe('walk', () => {
+    it('throws an error if pet is not alive', () =>{ 
+        const pet = new Pet('Margaret')
+        pet.fitness = -1
+        expect(() => pet.walk()).toThrow('Your pet is no longer alive :(')
+    })
     it('increases fitness by 4', () => {
         const pet = new Pet('Fido');
         pet.fitness = 8;
@@ -52,6 +63,12 @@ describe('walk', () => {
 });
 
 describe('feed', () => {
+    it('throws an error if pet is not alive', () => {
+        const pet = new Pet('Alistair')
+        pet.age = 30
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');   
+    });
+
     it('decreases hunger by 3', () => {
     const pet = new Pet('Fido');
     pet.hunger = 7;
@@ -62,15 +79,22 @@ describe('feed', () => {
 });
 
 describe('checkUp', () => {
-    const pet = new Pet('Fido');
+    it('throws an error if pet is not alive', () => {
+        const pet = new Pet('George')
+        pet.hunger = 18
+        expect(() => pet.checkUp()).toThrow('Your pet is no longer alive :(');
+    });
+
+    const pet = new Pet('Charles');
     it('checks if fitness is 3 or less', () => {
     pet.fitness = 2
     expect(pet.checkUp()).toEqual('I need a walk!')
 });
     
     it('checks if pet/s hunger is 5 or more', () => {
+    const pet = new Pet('Virgil');
     pet.hunger = 6
-    pet.fitness = 8
+    // pet.fitness = 8 only needs to include fitness variable if calling hugner for 'Charles'
     expect(pet.checkUp()).toEqual('I am hungry!')
 });
     it('checks if fitness is 3 or less and pet hunger is 5 or more', () => {
