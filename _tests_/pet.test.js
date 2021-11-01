@@ -1,4 +1,5 @@
 const Pet = require('../src/pet');
+const Child = require('../src/pet');
 
 describe('constructor', () => {
     it('returns an object', () => {
@@ -132,10 +133,8 @@ describe('isAlive', () => {
     });
 });
     
-// describe('haveBaby',() = > { 
-//     const parent = new Pet('Fergus');
-//     parent.haveBaby('Amelie')
-//     it('tests that children is property of array')
-//     expect
-
-// })
+describe('super', () => {
+    it('returns a child class from Pet', () => {
+    expect(new Child('Maggie')).toBeInstanceOf(Object);
+});
+});

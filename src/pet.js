@@ -11,6 +11,8 @@ class Pet {
         this.age = MINIMUM_AGE;
         this.hunger = MINIMUM_HUNGER;
         this.fitness = MAXIMUM_FITNESS;
+        // this.child = children;
+
     }
 
     get isAlive() {
@@ -65,9 +67,19 @@ class Pet {
              return 'I feel great!'
         };
         }
+
+        // adoptChild(babyName) {
+        //    return children.push(babyName);
+        // }
     }
 
-       
+       class Child extends Pet {
+           constructor(name) {
+               super();
+               //here we call the super method, inside the constructor method, which means it will call the constructor method of the parent class and all the methods inside it.
+               this.name = name;              ;
+           }
+       }
     
 
 
@@ -77,4 +89,4 @@ const pet = new Pet('Fido');
 
 
 
-module.exports = Pet;
+(module.exports = Pet), Child;
